@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+    <test name="testng">
+        <parameter name="hostname" value="https://www.1gl.ru"/>
+        <parameter name="hubAddress" value="http://localhost:4444/wd/hub"/>
+        <parameter name="login" value="autoUser@mailinator.com"/>
+        <parameter name="password" value="autoPass"/>
+        <classes>
+            <class name="autotestsearch.smoke.SearchTests">
+                <methods>
+                    <include name="searchTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
