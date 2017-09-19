@@ -57,13 +57,17 @@ public class ContentLawPage {
     }
 
     @Step("Checking search results")
-    public boolean checkSearchResults() throws TimeoutException {
+    public boolean checkSearchResults(String searchString, String documentType, String region) throws TimeoutException {
         try {
             final Wait<WebDriver> wait = new WebDriverWait(driver, Constants.TIMEOUT).withMessage(Constants.NOT_FOUND_MESSAGE);
             wait.until(ExpectedConditions.visibilityOf(searchResultsSection));
             wait.until(ExpectedConditions.visibilityOf(searchTitle));
             wait.until(ExpectedConditions.visibilityOf(searchResultDescriptionString));
             wait.until(ExpectedConditions.visibilityOf(resultsSideBar));
+            wait.until(ExpectedConditions.titleContains(searchString));
+            searchTitle.getText().contains(searchString);
+            searchResultDescriptionString.getText().contains(documentType);
+            searchResultDescriptionString.getText().contains(region);
         } catch (TimeoutException e) {
             return false;
         }

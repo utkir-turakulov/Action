@@ -47,7 +47,7 @@ public class SearchTests {
         if(authPage.userAuth(login, password)) {
             headerPanel.goToContentLawPage();
             contentLawPage.searchForInfo("налог", "Постановление", "Москва");
-            Assert.assertTrue(contentLawPage.checkSearchResults());
+            Assert.assertTrue(contentLawPage.checkSearchResults("налог", "Постановление", "Москва"));
         }
         else Assert.assertTrue(false, "Failed to log in");
     }
